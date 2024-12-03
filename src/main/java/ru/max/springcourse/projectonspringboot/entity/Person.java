@@ -12,5 +12,5 @@ public class Person {
     private Long id;
     private String name;
     private int age;
-    private Long bookId;
+    private Book book;
 }

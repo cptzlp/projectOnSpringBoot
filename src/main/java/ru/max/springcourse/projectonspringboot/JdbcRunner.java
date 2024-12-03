@@ -1,14 +1,22 @@
 package ru.max.springcourse.projectonspringboot;
 
+
+import ru.max.springcourse.projectonspringboot.dao.BookDao;
+import ru.max.springcourse.projectonspringboot.dao.PersonDao;
+
+
 import ru.max.springcourse.projectonspringboot.utils.ConnectionManager;
 
 import java.sql.*;
-import java.util.Random;
+
+
 
 public class JdbcRunner {
     public static void main(String[] args) throws SQLException {
-        checkMetaData();
-        System.out.println(getTitleOfBookAndOwner(new Random().nextInt(1, 5)));
+        PersonDao personDao = PersonDao.getInstance();
+        BookDao bookDao = BookDao.getInstance();
+        System.out.println(personDao.findById(1L));
+
     }
 
 
@@ -44,12 +52,4 @@ public class JdbcRunner {
     }
 
 
-    //Метаданные базы данных
-    public static void checkMetaData() throws SQLException {
-        try (Connection connection = ConnectionManager.get()) {
-            DatabaseMetaData metaData = connection.getMetaData();
-            String userName = metaData.getUserName();
-            System.out.println(userName);
-        }
-    }
 }
