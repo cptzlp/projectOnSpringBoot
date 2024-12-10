@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+
 public class BookDao implements Dao<Long, Book> {
     private static final BookDao INSTANCE = new BookDao();
 
@@ -85,6 +86,7 @@ public class BookDao implements Dao<Long, Book> {
             throw new DaoException(e);
         }
     }
+
 
     //Получить все книги
     @Override
